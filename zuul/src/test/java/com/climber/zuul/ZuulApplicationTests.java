@@ -1,4 +1,4 @@
-package com.climber.gateway;
+package com.climber.zuul;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GatewayApplicationTests {
+public class ZuulApplicationTests {
 
 	@Test
 	public void contextLoads() {

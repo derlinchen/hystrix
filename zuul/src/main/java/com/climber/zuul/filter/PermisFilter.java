@@ -1,4 +1,4 @@
-package com.climber.gateway.filter;
+package com.climber.zuul.filter;
 
 import javax.servlet.http.HttpServletRequest;
 

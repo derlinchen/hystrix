@@ -8,7 +8,7 @@
 
 三、创建服务调用者Consummer
 
-### SpringCloud版本为Greenwich,以Eureka为例，对SpringCloud做相应说明 ###
+### SpringCloud版本为Greenwich,以Eureka为例，对SpringCloud简单说明 ###
 
 一、服务注册中心的创建，通过使用`spring-cloud-starter-netflix-eureka-server`进行创建
 

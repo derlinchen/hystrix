@@ -8,7 +8,7 @@
 
 三、创建服务调用者Consummer
 
-### SpringCloud版本为Greenwich,以Eureka为例，对SpringCloud简单说明 ###
+### SpringCloud版本为Greenwich,以Eureka为例，对SpringCloud做相应说明 ###
 
 一、服务注册中心的创建，通过使用`spring-cloud-starter-netflix-eureka-server`进行创建
 
@@ -77,19 +77,40 @@
     	return null;
     }
 
-五、声明式服务调用Feign
+五、声明式服务调用Feign，代替RestTemplate，可以更优雅的进行服务调用
 
-1、调用具体如下：
-
+1、消费者中定义调用服务提供者接口，调用具体如下：
+    
     @FeignClient("hello-service")
     public interface HelloService {
-	    @RequestMapping("/hello")
-	    String hello();
+    	@RequestMapping("/hello")
+    	String hello();
     }
 
 表示调用服务提供者hello-service中的hello请求接口
 
-2、Feign的继承特性
+2、在服务提供者hello-service中定义接口：
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String hello() {
+    	return "hello";
+    }
+
+3、在Controller层调用消费者代码：
+
+	@RestController
+	public class FeignConsumerController {
+	    @Autowired
+	    HelloService helloService;
+	
+	    @RequestMapping("/hello")
+	    public String hello() {
+	        return helloService.hello();
+	    }
+	}
+
+
+4、Feign的继承特性
 
 创建公共api，定义接口interface，并在接口中定义调用方法，对接口和方法进行`@RequestMapping`注解
 
